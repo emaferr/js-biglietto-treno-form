@@ -1,9 +1,9 @@
 function cancellaDati() {
-    window.location.reload();
+    // window.location.reload();
 
     // Primo metodo utilizzato per resettare la pagina
 
-    // document.getElementById("dati_utente").reset();
+    document.getElementById("dati_utente").reset();
     // document.getElementById("nome_biglietto").innerHTML = "";
     // document.getElementById("codice_treno").innerHTML = "";
     // document.getElementById("numero_carrozza").innerHTML = "";
@@ -41,11 +41,15 @@ function generaBiglietto() {
         document.getElementById("offerta").innerHTML = "Nessuna offerta applicabile"
     }
 
-    
-
     document.getElementById("nome_biglietto").innerHTML = nomeUtente;
     document.getElementById("codice_treno").innerHTML = codiceTreno;
     document.getElementById("numero_carrozza").innerHTML = carrozzaTreno;
     document.getElementById("costo_biglietto").innerHTML = (new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR'}).format(prezzoBiglietto));
     document.getElementById("qrcode").style.display = "block";
 }
+
+function newQR() {
+    var x = Math.floor((Math.random() * 99) + 1);
+    document.getElementById('qrcode').src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + x
+  }
+  newQR()
