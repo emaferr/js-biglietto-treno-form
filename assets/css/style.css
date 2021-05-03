@@ -1,5 +1,35 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
 .biglietto {
     margin-left: -15px;
     margin-right: -15px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
+
+/* Train animation */
+#train {
+    position: relative;
+    animation: mymove 5s infinite;
+  }
+
+#train {animation-timing-function: ease-in-out;}
+
+@keyframes mymove {
+    from {left: -15%;}
+    to {left: 100%;}
+  }
+
+#train img{
+    width: 200px;
+} 
+
+#qrcode {
+    width:160px;
+    height:160px;
+    margin-top:15px;
+    display: none;
+}
+
+

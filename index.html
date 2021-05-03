@@ -4,11 +4,18 @@
 
   <head>
 
-    <title>Title</title>
+    <title>JS | My train ticket</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/img/Citycons_train_icon-icons.com_67910.png" type="image/png" />
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -23,12 +30,13 @@
     <!-- Page header -->
     <header>
 
-        <!-- Image and text -->
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-light bg-light shadow">
+
             <a class="navbar-brand" href="#">
-                <img src="./assets/img/Citycons_train_icon-icons.com_67910.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                <span id="titolo">Calcola il biglietto del treno</span>
+              <img src="./assets/img/Citycons_train_icon-icons.com_67910.png" width="50" height="50" class="d-inline-block" alt="frontal image of a modern train">
+              <span class="company_name align-middle font-weight-bold text-uppercase text-black-50">train company</span>
             </a>
+
         </nav>
 
     </header>
@@ -39,23 +47,23 @@
 
             <form id="dati_utente">
 
-                <h3 class="text-uppercase my-4">calcola il prezzo del tuo biglietto</h3>
+                <h3 class="text-uppercase my-5">calcola il prezzo del tuo biglietto</h3>
 
-                <div class="row text-center bg-light">
+                <div class="row text-center bg-light shadow">
     
                   <div class="col px-5">
-                    <label for="exampleFormControlSelect1">Nome Cognome</label>
+                    <label class="text-info font-weight-bold mt-2" for="exampleFormControlSelect1">Nome Cognome</label>
                     <input type="text" id="nome_utente" class="form-control" placeholder="Nome Cognome">
                   </div>
     
                   <div class="col px-5">
-                    <label for="exampleFormControlSelect1">Km da percorrere</label>
+                    <label class="text-info font-weight-bold mt-2" for="exampleFormControlSelect1">Km da percorrere</label>
                     <input type="text" id="chilometri_percorso" class="form-control" placeholder="Km da percorrere">
                   </div>
     
                   <div class="col form-group px-5">
     
-                    <label for="exampleFormControlSelect1">Fascia d'età</label>
+                    <label class="text-info font-weight-bold mt-2" for="exampleFormControlSelect1">Fascia d'età</label>
     
                     <select class="form-control" id="exampleFormControlSelect1">
                       <option>Minorenne</option>
@@ -64,26 +72,26 @@
                     </select>
     
                   </div>
-     
-                </div>
 
-                <div class="genera_annulla">
+                  <div class="genera_annulla col-12">
 
                     <div class="col text-center my-4">
 
-                        <button type="button" onclick="generaBiglietto()" value="Submit" id="genera_biglietto" class="btn btn-info mx-2">Genera</button>
+                        <button type="button" onclick="generaBiglietto(), newQR()" value="Submit" id="genera_biglietto" class="btn btn-info mx-2">Genera</button>
 
                         <button type="button" onclick="cancellaDati()" value="Reset" id="cancella_dati" class="btn btn-info mx-2">Annulla</button>
                         
                     </div>
 
                 </div>
+     
+                </div>
 
             </form>
 
-            <h3>IL TUO BIGLIETTO</h3>
+            <h3 class="mt-5">IL TUO BIGLIETTO</h3>
 
-            <div class="biglietto bg-light text-left px-4">
+            <div class="biglietto bg-light text-left px-4 shadow">
 
                 <h5 class="pt-4">DETTAGLIO PASSEGGERI</h5>
 
@@ -92,44 +100,52 @@
                 <div class="row">
                     <div style="margin-left: 15px; background-color: lightgrey;" class="col p-4">
                         <h5 class="text-uppercase font-weight-bold">nome passeggero</h5>
-                        <strong id="nome_biglietto"></strong>
+                        <strong class="text-capitalize" id="nome_biglietto"></strong>
+                        <img id='qrcode' src=''>
                     </div>
                     <div class="col p-4">
-                        <h5 class="mb-5 my-2 font-weight-bold">Offerta</h5>
+                        <h5 class="my-5 font-weight-bold">Offerta</h5>
                         <span id="offerta"></span>
                     </div>
                     <div class="col p-4">
-                        <h5 class="mb-5 my-2 font-weight-bold">Carrozza n°</h5>
-                        <span id="numero_carrozza"></span>
+                        <h5 class="my-5 font-weight-bold">Carrozza n°</h5>
+                        <span class="align-text-top" id="numero_carrozza"></span>
                     </div>
                     <div class="col p-4">
-                        <h5 class="mb-5 my-2 font-weight-bold">Codice CP</h5>
-                        <span id="codice_treno"></span>
+                        <h5 class="my-5 font-weight-bold">Codice CP</h5>
+                        <span class="align-text-top" id="codice_treno"></span>
                     </div>
                     <div class="col p-4">
-                        <h5 class="mb-5 my-2 font-weight-bold">Costo biglietto</h5>
-                        <span id="costo_biglietto"></span>
+                        <h5 class="my-5 font-weight-bold">Costo biglietto</h5>
+                        <span class="align-text-top" id="costo_biglietto"></span>
                     </div>   
                 </div>
-
+               
                 <hr class="my-0 pb-4">
 
             </div>
 
-            
         </div>
 
     </main>
+
+    <footer class="text-left mt-3">
+
+        <div id="train">
+            <img src="./assets/img/train.png" alt="train wagon passing from left to right">
+        </div>
+
+    </footer>
 
       
     <!-- My JavaScript -->
     <script src="./assets/js/function.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   </body>
 

@@ -1,5 +1,14 @@
 function cancellaDati() {
-    document.getElementById("dati_utente").reset();
+    window.location.reload();
+
+    // Primo metodo utilizzato per resettare la pagina
+
+    // document.getElementById("dati_utente").reset();
+    // document.getElementById("nome_biglietto").innerHTML = "";
+    // document.getElementById("codice_treno").innerHTML = "";
+    // document.getElementById("numero_carrozza").innerHTML = "";
+    // document.getElementById("costo_biglietto").innerHTML = "";
+    // document.getElementById("offerta").innerHTML = "";
 }
 
 function generaBiglietto() {
@@ -13,7 +22,7 @@ function generaBiglietto() {
     } else if (isNaN (chilometri) ) {
         alert("Il valore chilometri inserito non è corretto. Inserire un numero compreso fra 5 e 1500")   
     } else {
-        
+
     }
 
     // Categoria selezionata dall'utente
@@ -32,9 +41,11 @@ function generaBiglietto() {
         document.getElementById("offerta").innerHTML = "Nessuna offerta applicabile"
     }
 
+    
+
     document.getElementById("nome_biglietto").innerHTML = nomeUtente;
     document.getElementById("codice_treno").innerHTML = codiceTreno;
     document.getElementById("numero_carrozza").innerHTML = carrozzaTreno;
     document.getElementById("costo_biglietto").innerHTML = (new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR'}).format(prezzoBiglietto));
-
+    document.getElementById("qrcode").style.display = "block";
 }
