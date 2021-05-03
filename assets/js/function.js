@@ -49,6 +49,7 @@ function generaBiglietto() {
 }
 
 function newQR() {
-    document.getElementById('qrcode').src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + codiceTreno
+    var nomeUtente = document.getElementById("nome_utente").value;
+    document.getElementById('qrcode').src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data= " + nomeUtente + " treno: " + codiceTreno + " carrozza n°: " + carrozzaTreno;
   }
   newQR()
