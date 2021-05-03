@@ -6,5 +6,5 @@ var codiceTreno = Math.floor(Math.random() * (100000 - 90000) + 90000);
 // Numero carrozza
 var carrozzaTreno = Math.floor(Math.random() * (2 - 11) + 11);
 
-var listaBiglietti = [];
+
 

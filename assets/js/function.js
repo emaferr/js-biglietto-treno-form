@@ -49,7 +49,6 @@ function generaBiglietto() {
 }
 
 function newQR() {
-    var x = Math.floor((Math.random() * 99) + 1);
-    document.getElementById('qrcode').src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + x
+    document.getElementById('qrcode').src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + codiceTreno
   }
   newQR()
